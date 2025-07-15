@@ -7,13 +7,13 @@ router.post("/user", async (req, res) => {
   const { userId } = req.body;
 
   try {
-    // Check if user already exists
+    // validation of User
     const existingUser = await User.findOne({ userId });
     if (existingUser) {
       return res.status(400).json({ message: "Username already exists" });
     }
 
-    // Create new user
+    // Create new user in Database
     const user = new User({ userId });
     await user.save();
 
@@ -36,7 +36,7 @@ router.post("/generatepoints", async (req, res) => {
     //   return res.status(400).json({
     //     message: "user Points already generated",
     //   });
-    // }
+    // }  this commented for if you want to generate points only once
     const pointsToAdd = Math.floor(Math.random() * 10 + 1);
     user.points = (user.points || 0) + pointsToAdd;
     await user.save();
@@ -49,7 +49,7 @@ router.post("/generatepoints", async (req, res) => {
 
 router.get("/leaderboard", async (req, res) => {
   try {
-    const users = await User.find().sort({ points: -1 });
+    const users = await User.find().sort({ points: -1 }); // Sort of database by points in descending order
 
     res.status(200).json({
       message: "Leaderboard fetched successfully",

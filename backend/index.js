@@ -10,13 +10,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("hello, world");
-});
-
 app.use("/api", fileroutes);
 
 app.listen(3000, () => {
   connectDB();
-  console.log("server is running on 3000");
+  console.log("server is running on 3000"); // server started
 });
