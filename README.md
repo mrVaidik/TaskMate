@@ -1,4 +1,4 @@
-# Project Name
+# TASKMATE ASSESMENT
 
 ## Overview
 This project consists of two main components: a backend and a frontend. Each component has its own `.env` file for environment-specific configurations. Below are the instructions to set up and run each component.
@@ -18,6 +18,9 @@ This project consists of two main components: a backend and a frontend. Each com
    cd backend
    ```
 2. Create a `.env` file in the `backend` folder and add the required environment variables (refer to `.env.example` if available).
+   ```bash
+   DATABASE_URL=
+   ```
 3. Install dependencies:
    ```bash
    npm i
@@ -33,6 +36,9 @@ This project consists of two main components: a backend and a frontend. Each com
    cd frontend
    ```
 2. Create a `.env` file in the `frontend` folder and add the required environment variables (refer to `.env.example` if available).
+   ```bash
+   VITE_BACKEND_URL=
+   ```
 3. Install dependencies:
    ```bash
    npm i
